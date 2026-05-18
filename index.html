@@ -3,362 +3,1175 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Réinventez-vous - Le guide essentiel par Lila Nova</title>
-    <!-- Chargement de Tailwind CSS -->
-    <script src="https://cdn.tailwindcss.com"></script>
-    <!-- Police Inter de Google Fonts -->
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
-    <!-- Icônes Font Awesome -->
+    <meta name="description" content="EmploiYele - Service professionnel de rédaction de CV, lettres de motivation et lettres de demande d'emploi optimisés aux normes internationales. Basé en RDC.">
+    <meta name="keywords" content="CV, lettre de motivation, emploi international, Congo, RDC, rédaction CV, ATS, LinkedIn">
+    <meta name="author" content="EmploiYele">
+    <title>EmploiYele | CV et Lettres de Motivation Internationaux depuis le Congo</title>
+    
+    <!-- Font Awesome CDN -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    
+    <!-- Google Fonts -->
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    
     <style>
+        /* ============================================
+           VARIABLES CSS & RESET
+           ============================================ */
+        :root {
+            --primary-blue: #0B1D3A;
+            --accent-orange: #F39C12;
+            --accent-orange-hover: #e67e22;
+            --white: #ffffff;
+            --light-gray: #f8f9fa;
+            --medium-gray: #6c757d;
+            --dark-gray: #343a40;
+            --shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+            --shadow-hover: 0 10px 20px rgba(0, 0, 0, 0.15);
+            --transition: all 0.3s ease;
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        html {
+            scroll-behavior: smooth;
+        }
+
         body {
-            font-family: 'Inter', sans-serif;
-            background: linear-gradient(to bottom right, #f8fafc, #e0f2fe);
-            min-height: 100vh;
+            font-family: 'Poppins', sans-serif;
+            line-height: 1.6;
+            color: var(--dark-gray);
+            background-color: var(--white);
+            overflow-x: hidden;
         }
-        .gradient-text {
-            background: linear-gradient(135deg, #4f46e5, #7e22ce);
-            -webkit-background-clip: text;
-            -webkit-text-fill-color: transparent;
-            background-clip: text;
+
+        a {
+            text-decoration: none;
+            color: inherit;
         }
-        .mobile-menu {
-            transform: translateX(-100%);
-            transition: transform 0.3s ease-in-out;
+
+        ul {
+            list-style: none;
         }
-        .mobile-menu.active {
-            transform: translateX(0);
+
+        img {
+            max-width: 100%;
+            height: auto;
         }
-        .testimonial-card {
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+
+        .btn {
+            display: inline-block;
+            padding: 12px 30px;
+            border-radius: 5px;
+            font-weight: 600;
+            cursor: pointer;
+            transition: var(--transition);
+            border: none;
+            font-size: 1rem;
+        }
+
+        .btn-primary {
+            background-color: var(--accent-orange);
+            color: var(--white);
+        }
+
+        .btn-primary:hover {
+            background-color: var(--accent-orange-hover);
+            transform: translateY(-2px);
+            box-shadow: var(--shadow-hover);
+        }
+
+        section {
+            padding: 80px 0;
+        }
+
+        .section-title {
+            text-align: center;
+            font-size: 2.5rem;
+            color: var(--primary-blue);
+            margin-bottom: 50px;
             position: relative;
         }
-        .testimonial-card:before {
-            content: """;
+
+        .section-title::after {
+            content: '';
+            display: block;
+            width: 80px;
+            height: 4px;
+            background-color: var(--accent-orange);
+            margin: 15px auto 0;
+            border-radius: 2px;
+        }
+
+        /* Animation fade-in au scroll */
+        .fade-in {
+            opacity: 0;
+            transform: translateY(30px);
+            transition: opacity 0.6s ease-out, transform 0.6s ease-out;
+        }
+
+        .fade-in.visible {
+            opacity: 1;
+            transform: translateY(0);
+        }
+
+        /* HEADER & NAVIGATION */
+        header {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            background-color: var(--primary-blue);
+            z-index: 1000;
+            box-shadow: var(--shadow);
+        }
+
+        nav {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 15px 20px;
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+
+        .logo {
+            font-size: 1.5rem;
+            font-weight: 700;
+            color: var(--white);
+        }
+
+        .logo span {
+            color: var(--accent-orange);
+        }
+
+        .nav-links {
+            display: flex;
+            gap: 30px;
+        }
+
+        .nav-links a {
+            color: var(--white);
+            font-weight: 500;
+            transition: var(--transition);
+        }
+
+        .nav-links a:hover {
+            color: var(--accent-orange);
+        }
+
+        .hamburger {
+            display: none;
+            cursor: pointer;
+            color: var(--white);
+            font-size: 1.5rem;
+        }
+
+        /* HERO SECTION */
+        #accueil {
+            background: linear-gradient(135deg, var(--primary-blue) 0%, #1a3a5c 100%);
+            color: var(--white);
+            padding-top: 120px;
+            padding-bottom: 100px;
+            text-align: center;
+        }
+
+        .hero-content {
+            max-width: 800px;
+            margin: 0 auto;
+        }
+
+        .hero-content h1 {
+            font-size: 3rem;
+            margin-bottom: 20px;
+            line-height: 1.2;
+        }
+
+        .hero-content p {
+            font-size: 1.2rem;
+            margin-bottom: 30px;
+            opacity: 0.9;
+        }
+
+        .flag {
+            font-size: 1.5rem;
+        }
+
+        /* POURQUOI CE SERVICE */
+        #pourquoi {
+            background-color: var(--light-gray);
+        }
+
+        .features-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 30px;
+        }
+
+        .feature-card {
+            background-color: var(--white);
+            padding: 40px 30px;
+            border-radius: 10px;
+            text-align: center;
+            box-shadow: var(--shadow);
+            transition: var(--transition);
+        }
+
+        .feature-card:hover {
+            transform: translateY(-10px);
+            box-shadow: var(--shadow-hover);
+        }
+
+        .feature-icon {
+            font-size: 3rem;
+            color: var(--accent-orange);
+            margin-bottom: 20px;
+        }
+
+        .feature-card h3 {
+            color: var(--primary-blue);
+            margin-bottom: 15px;
+            font-size: 1.3rem;
+        }
+
+        .feature-card p {
+            color: var(--medium-gray);
+        }
+
+        /* SERVICES / PACKS */
+        #services {
+            background-color: var(--white);
+        }
+
+        .pricing-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 30px;
+        }
+
+        .pricing-card {
+            background-color: var(--white);
+            border: 2px solid #e9ecef;
+            border-radius: 10px;
+            padding: 40px 30px;
+            text-align: center;
+            transition: var(--transition);
+            position: relative;
+            overflow: hidden;
+        }
+
+        .pricing-card:hover {
+            border-color: var(--accent-orange);
+            box-shadow: var(--shadow-hover);
+            transform: translateY(-5px);
+        }
+
+        .pricing-card.featured {
+            border-color: var(--accent-orange);
+            background: linear-gradient(to bottom, #fff9f0, #ffffff);
+        }
+
+        .pricing-card.featured::before {
+            content: 'Recommandé';
             position: absolute;
-            top: -15px;
-            left: 15px;
-            font-size: 80px;
-            color: #e0e7ff;
-            font-family: Arial, sans-serif;
+            top: 20px;
+            right: -30px;
+            background-color: var(--accent-orange);
+            color: var(--white);
+            padding: 5px 40px;
+            transform: rotate(45deg);
+            font-size: 0.8rem;
+            font-weight: 600;
         }
-        /* Styles pour améliorer la lisibilité sur mobile */
-        p, li {
-            line-height: 1.6;
+
+        .pricing-card h3 {
+            color: var(--primary-blue);
+            font-size: 1.5rem;
+            margin-bottom: 15px;
         }
-        section {
-            scroll-margin-top: 80px;
+
+        .price {
+            font-size: 3rem;
+            color: var(--accent-orange);
+            font-weight: 700;
+            margin-bottom: 20px;
+        }
+
+        .price span {
+            font-size: 1rem;
+            color: var(--medium-gray);
+            font-weight: 400;
+        }
+
+        .pricing-card ul {
+            margin-bottom: 30px;
+            text-align: left;
+        }
+
+        .pricing-card li {
+            padding: 10px 0;
+            border-bottom: 1px solid #e9ecef;
+            color: var(--dark-gray);
+        }
+
+        .pricing-card li:last-child {
+            border-bottom: none;
+        }
+
+        .pricing-card li i {
+            color: var(--accent-orange);
+            margin-right: 10px;
+        }
+
+        /* TÉMOIGNAGES */
+        #temoignages {
+            background-color: var(--light-gray);
+        }
+
+        .testimonials-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 30px;
+        }
+
+        .testimonial-card {
+            background-color: var(--white);
+            padding: 40px 30px;
+            border-radius: 10px;
+            box-shadow: var(--shadow);
+            text-align: center;
+        }
+
+        .testimonial-photo {
+            width: 80px;
+            height: 80px;
+            border-radius: 50%;
+            background-color: #ddd;
+            margin: 0 auto 20px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 2rem;
+            color: var(--primary-blue);
+        }
+
+        .testimonial-text {
+            font-style: italic;
+            color: var(--medium-gray);
+            margin-bottom: 20px;
+            line-height: 1.8;
+        }
+
+        .testimonial-author {
+            font-weight: 600;
+            color: var(--primary-blue);
+        }
+
+        /* COMMENT ÇA MARCHE */
+        #comment-ca-marche {
+            background-color: var(--white);
+        }
+
+        .steps-container {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+            gap: 30px;
+        }
+
+        .step {
+            flex: 1;
+            min-width: 200px;
+            max-width: 250px;
+            text-align: center;
+        }
+
+        .step-number {
+            width: 60px;
+            height: 60px;
+            background-color: var(--accent-orange);
+            color: var(--white);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 1.5rem;
+            font-weight: 700;
+            margin: 0 auto 20px;
+        }
+
+        .step h3 {
+            color: var(--primary-blue);
+            margin-bottom: 10px;
+        }
+
+        .step p {
+            color: var(--medium-gray);
+            font-size: 0.95rem;
+        }
+
+        /* FORMULAIRE DE COMMANDE */
+        #contact {
+            background: linear-gradient(135deg, var(--primary-blue) 0%, #1a3a5c 100%);
+            color: var(--white);
+        }
+
+        #contact .section-title {
+            color: var(--white);
+        }
+
+        .form-container {
+            max-width: 600px;
+            margin: 0 auto;
+            background-color: var(--white);
+            padding: 40px;
+            border-radius: 10px;
+            box-shadow: var(--shadow-hover);
+        }
+
+        .form-group {
+            margin-bottom: 20px;
+        }
+
+        .form-group label {
+            display: block;
+            margin-bottom: 8px;
+            color: var(--primary-blue);
+            font-weight: 500;
+        }
+
+        .form-group input,
+        .form-group select,
+        .form-group textarea {
+            width: 100%;
+            padding: 12px 15px;
+            border: 2px solid #e9ecef;
+            border-radius: 5px;
+            font-family: inherit;
+            font-size: 1rem;
+            transition: var(--transition);
+        }
+
+        .form-group input:focus,
+        .form-group select:focus,
+        .form-group textarea:focus {
+            outline: none;
+            border-color: var(--accent-orange);
+        }
+
+        .form-group textarea {
+            resize: vertical;
+            min-height: 100px;
+        }
+
+        .checkbox-group {
+            display: flex;
+            align-items: flex-start;
+            gap: 10px;
+            margin-bottom: 20px;
+        }
+
+        .checkbox-group input[type="checkbox"] {
+            width: auto;
+            margin-top: 4px;
+        }
+
+        .checkbox-group label {
+            font-size: 0.9rem;
+            color: var(--medium-gray);
+            font-weight: 400;
+        }
+
+        .form-submit {
+            width: 100%;
+            padding: 15px;
+            background-color: var(--accent-orange);
+            color: var(--white);
+            border: none;
+            border-radius: 5px;
+            font-size: 1.1rem;
+            font-weight: 600;
+            cursor: pointer;
+            transition: var(--transition);
+        }
+
+        .form-submit:hover {
+            background-color: var(--accent-orange-hover);
+        }
+
+        /* Message de succès */
+        .success-message {
+            display: none;
+            text-align: center;
+            padding: 30px;
+        }
+
+        .success-message i {
+            font-size: 4rem;
+            color: #28a745;
+            margin-bottom: 20px;
+        }
+
+        .success-message h3 {
+            color: var(--primary-blue);
+            margin-bottom: 15px;
+        }
+
+        .success-message p {
+            color: var(--medium-gray);
+            margin-bottom: 20px;
+        }
+
+        /* Section paiement */
+        .payment-section {
+            display: none;
+            margin-top: 30px;
+            padding: 30px;
+            background-color: #f8f9fa;
+            border-radius: 10px;
+            border: 2px dashed var(--accent-orange);
+        }
+
+        .payment-section h4 {
+            color: var(--primary-blue);
+            margin-bottom: 15px;
+            font-size: 1.2rem;
+        }
+
+        .payment-section p {
+            color: var(--medium-gray);
+            margin-bottom: 20px;
+        }
+
+        .payment-methods {
+            display: flex;
+            gap: 15px;
+            margin-bottom: 20px;
+            flex-wrap: wrap;
+        }
+
+        .payment-badge {
+            background-color: var(--white);
+            padding: 10px 20px;
+            border-radius: 5px;
+            box-shadow: var(--shadow);
+            font-weight: 600;
+            color: var(--primary-blue);
+        }
+
+        /* FOOTER */
+        footer {
+            background-color: var(--primary-blue);
+            color: var(--white);
+            padding: 50px 0 20px;
+        }
+
+        .footer-content {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 40px;
+            margin-bottom: 40px;
+        }
+
+        .footer-section h4 {
+            color: var(--accent-orange);
+            margin-bottom: 20px;
+            font-size: 1.2rem;
+        }
+
+        .footer-section p {
+            opacity: 0.8;
+            line-height: 1.8;
+        }
+
+        .social-links {
+            display: flex;
+            gap: 15px;
+        }
+
+        .social-links a {
+            width: 40px;
+            height: 40px;
+            background-color: rgba(255, 255, 255, 0.1);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            transition: var(--transition);
+        }
+
+        .social-links a:hover {
+            background-color: var(--accent-orange);
+            transform: translateY(-3px);
+        }
+
+        .footer-links {
+            list-style: none;
+        }
+
+        .footer-links li {
+            margin-bottom: 10px;
+        }
+
+        .footer-links a {
+            opacity: 0.8;
+            transition: var(--transition);
+        }
+
+        .footer-links a:hover {
+            opacity: 1;
+            color: var(--accent-orange);
+        }
+
+        .footer-bottom {
+            text-align: center;
+            padding-top: 20px;
+            border-top: 1px solid rgba(255, 255, 255, 0.1);
+            opacity: 0.7;
+            font-size: 0.9rem;
+        }
+
+        /* COOKIE POPUP */
+        .cookie-popup {
+            position: fixed;
+            bottom: -100%;
+            left: 0;
+            width: 100%;
+            background-color: var(--primary-blue);
+            color: var(--white);
+            padding: 20px;
+            z-index: 9999;
+            transition: bottom 0.5s ease;
+            box-shadow: 0 -4px 10px rgba(0, 0, 0, 0.2);
+        }
+
+        .cookie-popup.show {
+            bottom: 0;
+        }
+
+        .cookie-content {
+            max-width: 1200px;
+            margin: 0 auto;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            flex-wrap: wrap;
+            gap: 20px;
+        }
+
+        .cookie-text {
+            flex: 1;
+            min-width: 300px;
+        }
+
+        .cookie-btn {
+            background-color: var(--accent-orange);
+            color: var(--white);
+            border: none;
+            padding: 10px 25px;
+            border-radius: 5px;
+            cursor: pointer;
+            font-weight: 600;
+            transition: var(--transition);
+        }
+
+        .cookie-btn:hover {
+            background-color: var(--accent-orange-hover);
+        }
+
+        /* RESPONSIVE DESIGN */
+        @media (max-width: 768px) {
+            .nav-links {
+                position: fixed;
+                top: 70px;
+                left: -100%;
+                width: 100%;
+                height: calc(100vh - 70px);
+                background-color: var(--primary-blue);
+                flex-direction: column;
+                align-items: center;
+                justify-content: center;
+                transition: var(--transition);
+            }
+
+            .nav-links.active {
+                left: 0;
+            }
+
+            .hamburger {
+                display: block;
+            }
+
+            .hero-content h1 {
+                font-size: 2rem;
+            }
+
+            .hero-content p {
+                font-size: 1rem;
+            }
+
+            .section-title {
+                font-size: 2rem;
+            }
+
+            .form-container {
+                padding: 30px 20px;
+            }
+
+            .cookie-content {
+                flex-direction: column;
+                text-align: center;
+            }
+        }
+
+        @media (max-width: 480px) {
+            .hero-content h1 {
+                font-size: 1.8rem;
+            }
+
+            .pricing-card.featured::before {
+                content: none;
+            }
+
+            .steps-container {
+                flex-direction: column;
+                align-items: center;
+            }
+
+            .step {
+                max-width: 100%;
+            }
         }
     </style>
 </head>
-<body class="antialiased text-gray-800">
+<body>
+    <!-- Header & Navigation -->
+    <header>
+        <nav>
+            <div class="logo">Global CV <span>Pro</span></div>
+            <ul class="nav-links" id="navLinks">
+                <li><a href="#accueil">Accueil</a></li>
+                <li><a href="#pourquoi">Pourquoi</a></li>
+                <li><a href="#services">Services</a></li>
+                <li><a href="#temoignages">Témoignages</a></li>
+                <li><a href="#comment-ca-marche">Comment ça marche</a></li>
+                <li><a href="#contact">Contact</a></li>
+            </ul>
+            <div class="hamburger" id="hamburger">
+                <i class="fas fa-bars"></i>
+            </div>
+        </nav>
+    </header>
 
-    <!-- Barre de navigation mobile -->
-    <nav class="fixed top-0 w-full bg-white shadow-md z-50 md:hidden">
-        <div class="container mx-auto px-4 py-3 flex justify-between items-center">
-            <span class="text-xl font-bold gradient-text">RÉINVENTEZ-VOUS</span>
-            <button id="menu-toggle" class="text-indigo-700">
-                <i class="fas fa-bars text-2xl"></i>
-            </button>
+    <!-- Hero Section -->
+    <section id="accueil">
+        <div class="container hero-content fade-in">
+            <h1>Décrochez le job de vos rêves à l'étranger depuis le Congo</h1>
+            <p>CV, lettres de motivation et lettres de demande d'emploi optimisés aux normes internationales. Déjà 2 personnes placées grâce à notre méthode.</p>
+            <a href="#contact" class="btn btn-primary">Commander mon pack maintenant</a>
         </div>
-    </nav>
+    </section>
 
-    <!-- Menu mobile -->
-    <div id="mobile-menu" class="mobile-menu fixed inset-0 bg-white z-50 p-6 pt-16">
-        <button id="menu-close" class="absolute top-4 right-4 text-indigo-700">
-            <i class="fas fa-times text-2xl"></i>
-        </button>
-        <ul class="space-y-6 text-lg">
-            <li><a href="#intro" class="text-indigo-700 font-semibold">Accueil</a></li>
-            <li><a href="#about" class="text-indigo-700 font-semibold">L'auteure</a></li>
-            <li><a href="#benefits" class="text-indigo-700 font-semibold">Bénéfices</a></li>
-            <li><a href="#testimonials" class="text-indigo-700 font-semibold">Témoignages</a></li>
-            <li><a href="#faq" class="text-indigo-700 font-semibold">FAQ</a></li>
-            <li><a href="#purchase" class="text-indigo-700 font-semibold">Acheter</a></li>
-        </ul>
-        <div class="absolute bottom-10 left-0 right-0 text-center">
-            <a href="https://uerxlgwc.mychariow.com/prd_6n58lg/checkout" target="_blank"
-               class="inline-block bg-indigo-600 text-white font-bold py-3 px-8 rounded-full text-lg">
-                Acheter maintenant
-            </a>
-        </div>
-    </div>
-
-    <div class="container mx-auto px-4 pt-20 pb-10 max-w-3xl">
-
-        <!-- Section d'introduction/Héros -->
-        <header id="intro" class="text-center mb-10 bg-white p-6 rounded-2xl shadow-lg">
-            <h1 class="text-3xl font-bold mb-4 leading-tight">
-                <span class="gradient-text">RÉINVENTEZ-VOUS</span>
-            </h1>
-            <p class="text-lg text-gray-700 mb-4 font-medium">Le guide essentiel pour transformer votre vie</p>
-            <div class="h-1 w-16 bg-indigo-500 mx-auto mb-4 rounded-full"></div>
-            <p class="text-gray-600">
-                Dans un monde en constante évolution, se réinventer n'est plus une option, c'est une nécessité.
-                Découvrez une méthode claire et puissante pour briser vos limites et bâtir une nouvelle identité.
-            </p>
-        </header>
-
-        <!-- Section du livre et de l'auteur -->
-        <section id="about" class="mb-10 bg-white p-6 rounded-2xl shadow-lg">
-            <div class="flex flex-col items-center">
-<img src="https://uploads.onecompiler.io/43ugkkbeu/43ugkmka3/1000168054.jpg"
-     alt="Couverture du livre Réinventez-vous"
-     class="rounded-xl shadow-lg border-4 border-indigo-100 w-full h-auto">
-                        </div>
+    <!-- Pourquoi ce service -->
+    <section id="pourquoi">
+        <div class="container">
+            <h2 class="section-title fade-in">Pourquoi choisir EmploiYele ?</h2>
+            <div class="features-grid">
+                <div class="feature-card fade-in">
+                    <div class="feature-icon">
+                        <i class="fas fa-file-alt"></i>
                     </div>
+                    <h3>Adaptation aux standards ATS</h3>
+                    <p>Nous optimisons votre CV pour qu'il passe les filtres automatiques des systèmes de recrutement (ATS) utilisés par 90% des grandes entreprises internationales.</p>
                 </div>
-                
-                <!-- Détails du livre et de l'auteur -->
-                <div class="text-center">
-                    <div class="flex items-center justify-center mb-3">
-                        <div class="flex text-amber-400 text-sm">
-                            <i class="fas fa-star"></i>
-                            <i class="fas fa-star"></i>
-                            <i class="fas fa-star"></i>
-                            <i class="fas fa-star"></i>
-                            <i class="fas fa-star-half-alt"></i>
-                        </div>
-                        <span class="ml-2 text-sm text-gray-600">4.8/5 (1,243 avis)</span>
+                <div class="feature-card fade-in">
+                    <div class="feature-icon">
+                        <i class="fas fa-globe"></i>
+                    </div>
+                    <h3>Expertise Canada & Europe</h3>
+                    <p>Nos experts maîtrisent les spécificités des marchés canadien et européen. Nous adaptons votre profil aux attentes locales de chaque pays cible.</p>
+                </div>
+                <div class="feature-card fade-in">
+                    <div class="feature-icon">
+                        <i class="fas fa-user-check"></i>
+                    </div>
+                    <h3>Accompagnement personnalisé</h3>
+                    <p>Chaque client bénéficie d'un suivi individualisé. Nous prenons le temps de comprendre votre parcours et vos ambitions pour mieux les valoriser.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Services / Packs -->
+    <section id="services">
+        <div class="container">
+            <h2 class="section-title fade-in">Nos Packs</h2>
+            <div class="pricing-grid">
+                <!-- Pack Essentiel -->
+                <div class="pricing-card fade-in">
+                    <h3>Pack Essentiel</h3>
+                    <div class="price">15$ <span>/ unique</span></div>
+                    <ul>
+                        <li><i class="fas fa-check"></i> CV optimisé ATS</li>
+                        <li><i class="fas fa-check"></i> Format PDF et Word</li>
+                        <li><i class="fas fa-check"></i> Relecture incluse</li>
+                        <li><i class="fas fa-times" style="color: #ccc;"></i> Lettre de motivation</li>
+                        <li><i class="fas fa-times" style="color: #ccc;"></i> Optimisation LinkedIn</li>
+                    </ul>
+                    <a href="#contact" class="btn btn-primary" onclick="selectPack('Pack Essentiel')">Choisir ce pack</a>
+                </div>
+
+                <!-- Pack Standard -->
+                <div class="pricing-card featured fade-in">
+                    <h3>Pack Standard</h3>
+                    <div class="price">30$ <span>/ unique</span></div>
+                    <ul>
+                        <li><i class="fas fa-check"></i> CV optimisé ATS</li>
+                        <li><i class="fas fa-check"></i> Lettre de motivation personnalisée</li>
+                        <li><i class="fas fa-check"></i> Format PDF et Word</li>
+                        <li><i class="fas fa-check"></i> Relecture incluse</li>
+                        <li><i class="fas fa-times" style="color: #ccc;"></i> Optimisation LinkedIn</li>
+                    </ul>
+                    <a href="#contact" class="btn btn-primary" onclick="selectPack('Pack Standard')">Choisir ce pack</a>
+                </div>
+
+                <!-- Pack Premium -->
+                <div class="pricing-card fade-in">
+                    <h3>Pack Premium</h3>
+                    <div class="price">55$ <span>/ unique</span></div>
+                    <ul>
+                        <li><i class="fas fa-check"></i> CV optimisé ATS</li>
+                        <li><i class="fas fa-check"></i> Lettre de motivation personnalisée</li>
+                        <li><i class="fas fa-check"></i> Lettre de demande spontanée</li>
+                        <li><i class="fas fa-check"></i> Optimisation profil LinkedIn</li>
+                        <li><i class="fas fa-check"></i> Format PDF et Word</li>
+                        <li><i class="fas fa-check"></i> Relecture incluse</li>
+                    </ul>
+                    <a href="#contact" class="btn btn-primary" onclick="selectPack('Pack Premium')">Choisir ce pack</a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Témoignages -->
+    <section id="temoignages">
+        <div class="container">
+            <h2 class="section-title fade-in">Ce qu'ils disent de nous</h2>
+            <div class="testimonials-grid">
+                <div class="testimonial-card fade-in">
+                    <div class="testimonial-photo">
+                        <i class="fas fa-user"></i>
+                    </div>
+                    <p class="testimonial-text">« Grâce à EmploiYele, j'ai décroché un entretien au Canada en moins de 3 semaines ! Mon CV était enfin aux normes et ça a fait toute la différence. Je recommande vivement ! »</p>
+                    <p class="testimonial-author">— Marie K., Kinshasa</p>
+                </div>
+                <div class="testimonial-card fade-in">
+                    <div class="testimonial-photo">
+                        <i class="fas fa-user"></i>
+                    </div>
+                    <p class="testimonial-text">« Service professionnel et rapide. J'ai reçu tous mes documents en 48h comme promis. Le pack Premium vaut vraiment le coup avec l'optimisation LinkedIn. Merci ! »</p>
+                    <p class="testimonial-author">— Jean-Paul M., Lubumbashi</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Comment ça marche -->
+    <section id="comment-ca-marche">
+        <div class="container">
+            <h2 class="section-title fade-in">Comment ça marche ?</h2>
+            <div class="steps-container">
+                <div class="step fade-in">
+                    <div class="step-number">1</div>
+                    <h3>Choisissez votre pack</h3>
+                    <p>Sélectionnez l'offre qui correspond le mieux à vos besoins parmi nos 3 packs.</p>
+                </div>
+                <div class="step fade-in">
+                    <div class="step-number">2</div>
+                    <h3>Remplissez le formulaire</h3>
+                    <p>Partagez-nous vos informations et votre parcours via notre formulaire sécurisé.</p>
+                </div>
+                <div class="step fade-in">
+                    <div class="step-number">3</div>
+                    <h3>Payez via Chariow</h3>
+                    <p>Réglez facilement par mobile money (Airtel, Orange, M-Pesa) en FC ou USD.</p>
+                </div>
+                <div class="step fade-in">
+                    <div class="step-number">4</div>
+                    <h3>Recevez vos documents</h3>
+                    <p>Sous 48h maximum, recevez vos documents prêts à envoyer par email.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Formulaire de commande / Contact -->
+    <section id="contact">
+        <div class="container">
+            <h2 class="section-title fade-in">Passez votre commande</h2>
+            <div class="form-container fade-in">
+                <form id="orderForm">
+                    <div class="form-group">
+                        <label for="name">Nom complet *</label>
+                        <input type="text" id="name" name="name" required placeholder="Votre nom complet">
                     </div>
                     
-                    <h2 class="text-2xl font-bold text-gray-900 mb-3">Par Lila Nova</h2>
-                    <p class="text-indigo-600 mb-4 font-semibold flex items-center justify-center">
-                        <i class="fas fa-award text-amber-500 mr-2"></i>
-                        LAURÉAT DU PRIX 2020
-                    </p>
-                    <p class="text-gray-600 mb-4">
-                        Lila Nova est une auteure et coach reconnue, dédiée à aider les individus à libérer leur plein potentiel.
-                    </p>
-                    <ul class="text-left space-y-2 mb-4">
-                        <li class="flex items-start">
-                            <i class="fas fa-check-circle text-indigo-500 mt-1 mr-2"></i>
-                            <span class="text-gray-700"><span class="font-semibold">Déconstruction:</span> Briser les croyances limitantes</span>
-                        </li>
-                        <li class="flex items-start">
-                            <i class="fas fa-check-circle text-indigo-500 mt-1 mr-2"></i>
-                            <span class="text-gray-700"><span class="font-semibold">Reconstruction:</span> Bâtir de nouvelles habitudes</span>
-                        </li>
-                        <li class="flex items-start">
-                            <i class="fas fa-check-circle text-indigo-500 mt-1 mr-2"></i>
-                            <span class="text-gray-700"><span class="font-semibold">Ancrage:</span> Stabiliser votre transformation</span>
-                        </li>
+                    <div class="form-group">
+                        <label for="email">Email *</label>
+                        <input type="email" id="email" name="email" required placeholder="votre@email.com">
+                    </div>
+                    
+                    <div class="form-group">
+                        <label for="phone">Téléphone *</label>
+                        <input type="tel" id="phone" name="phone" required placeholder="+243 XX XXX XXXX">
+                    </div>
+                    
+                    <div class="form-group">
+                        <label for="pack">Pack souhaité *</label>
+                        <select id="pack" name="pack" required>
+                            <option value="">-- Sélectionnez un pack --</option>
+                            <option value="Pack Essentiel">Pack Essentiel - 15$</option>
+                            <option value="Pack Standard">Pack Standard - 30$</option>
+                            <option value="Pack Premium">Pack Premium - 55$</option>
+                        </select>
+                    </div>
+                    
+                    <div class="form-group">
+                        <label for="country">Pays cible *</label>
+                        <input type="text" id="country" name="country" required placeholder="Ex: Canada, France, Belgique...">
+                    </div>
+                    
+                    <div class="form-group">
+                        <label for="message">Message (optionnel)</label>
+                        <textarea id="message" name="message" placeholder="Précisions sur votre projet, expériences particulières..."></textarea>
+                    </div>
+                    
+                    <div class="checkbox-group">
+                        <input type="checkbox" id="consent" name="consent" required>
+                        <label for="consent">J'accepte que mes données soient utilisées uniquement pour le traitement de ma commande *</label>
+                    </div>
+                    
+                    <button type="submit" class="form-submit">Envoyer ma commande</button>
+                </form>
+
+                <!-- Message de succès -->
+                <div class="success-message" id="successMessage">
+                    <i class="fas fa-check-circle"></i>
+                    <h3>Merci ! Votre commande a bien été enregistrée.</h3>
+                    <p>Veuillez maintenant procéder au paiement pour finaliser votre commande.</p>
+                    
+                    <!-- Section paiement -->
+                    <div class="payment-section" id="paymentSection">
+                        <h4>Finalisez votre paiement via Chariow</h4>
+                        <p>Pour finaliser, veuillez procéder au paiement via Chariow (Airtel Money, Orange Money, M-Pesa).</p>
+                        <div class="payment-methods">
+                            <span class="payment-badge"><i class="fas fa-mobile-alt"></i> Airtel Money</span>
+                            <span class="payment-badge"><i class="fas fa-mobile-alt"></i> Orange Money</span>
+                            <span class="payment-badge"><i class="fas fa-mobile-alt"></i> M-Pesa</span>
+                        </div>
+                        <p>Paiement sécurisé en Francs Congolais (FC) ou Dollars ($), au choix.</p>
+                        <a href="https://pay.chariow.com/ton-lien-de-paiement" id="payButton" class="btn btn-primary" style="width: 100%;" target="_blank">
+                            <i class="fas fa-lock"></i> Payer maintenant
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer>
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-section">
+                    <h4>EmploiYele</h4>
+                    <p>Service professionnel de rédaction de CV et lettres de motivation aux normes internationales. Basé en République Démocratique du Congo.</p>
+                </div>
+                
+                <div class="footer-section">
+                    <h4>Liens rapides</h4>
+                    <ul class="footer-links">
+                        <li><a href="#accueil">Accueil</a></li>
+                        <li><a href="#services">Services</a></li>
+                        <li><a href="#temoignages">Témoignages</a></li>
+                        <li><a href="#contact">Contact</a></li>
                     </ul>
                 </div>
-            </div>
-        </section>
-
-        <!-- Section des points clés / Bénéfices -->
-        <section id="benefits" class="mb-10 bg-white p-6 rounded-2xl shadow-lg">
-            <h2 class="text-2xl font-bold text-center text-gray-900 mb-6">Ce que vous allez découvrir :</h2>
-            <div class="space-y-5">
-                <div class="text-center p-5 rounded-2xl bg-indigo-50 shadow-md">
-                    <div class="inline-flex items-center justify-center w-12 h-12 mb-4 rounded-full bg-indigo-100 text-indigo-600">
-                        <i class="fas fa-drafting-compass"></i>
+                
+                <div class="footer-section">
+                    <h4>Suivez-nous</h4>
+                    <div class="social-links">
+                        <a href="https://tiktok.com/@emploiyele" target="_blank" aria-label="TikTok">
+                            <i class="fab fa-tiktok"></i>
+                        </a>
+                        <a href="https://t.me/emploiyele" target="_blank" aria-label="Telegram">
+                            <i class="fab fa-telegram-plane"></i>
+                        </a>
+                        <a href="mailto:contact@emploiyele.cd" aria-label="Email">
+                            <i class="fas fa-envelope"></i>
+                        </a>
                     </div>
-                    <h3 class="text-xl font-semibold text-indigo-700 mb-2">Déconstruction</h3>
-                    <p class="text-gray-600 text-sm">Identifier et briser les croyances limitantes, comprendre et libérer les blessures du passé.</p>
-                </div>
-                <div class="text-center p-5 rounded-2xl bg-indigo-50 shadow-md">
-                    <div class="inline-flex items-center justify-center w-12 h-12 mb-4 rounded-full bg-indigo-100 text-indigo-600">
-                        <i class="fas fa-layer-group"></i>
-                    </div>
-                    <h3 class="text-xl font-semibold text-indigo-700 mb-2">Reconstruction</h3>
-                    <p class="text-gray-600 text-sm">Définir votre vision, bâtir des habitudes alignées avec vos valeurs profondes.</p>
-                </div>
-                <div class="text-center p-5 rounded-2xl bg-indigo-50 shadow-md">
-                    <div class="inline-flex items-center justify-center w-12 h-12 mb-4 rounded-full bg-indigo-100 text-indigo-600">
-                        <i class="fas fa-anchor"></i>
-                    </div>
-                    <h3 class="text-xl font-semibold text-indigo-700 mb-2">Ancrage</h3>
-                    <p class="text-gray-600 text-sm">Stabiliser votre transformation, gérer les rechutes et consolider vos acquis.</p>
                 </div>
             </div>
-        </section>
-
-        <!-- Section bonus -->
-        <section class="mb-10 bg-indigo-600 p-6 rounded-2xl shadow-lg text-white">
-            <div class="text-center">
-                <h2 class="text-xl font-bold mb-4">OFFRE SPÉCIALE : BONUS EXCLUSIFS</h2>
-                <p class="mb-4 opacity-90">Pour chaque acquisition, recevez gratuitement :</p>
-                <ul class="space-y-3 text-left mb-5">
-                    <li class="flex items-center">
-                        <i class="fas fa-gift text-amber-300 mr-3"></i>
-                        <span class="text-sm">Workbook d'exercices pratiques</span>
-                    </li>
-                    <li class="flex items-center">
-                        <i class="fas fa-gift text-amber-300 mr-3"></i>
-                        <span class="text-sm">Méditation guidée</span>
-                    </li>
-                    <li class="flex items-center">
-                        <i class="fas fa-gift text-amber-300 mr-3"></i>
-                        <span class="text-sm">Planificateur sur 30 jours</span>
-                    </li>
-                    <li class="flex items-center">
-                        <i class="fas fa-gift text-amber-300 mr-3"></i>
-                        <span class="text-sm">Webinar exclusif</span>
-                    </li>
-                </ul>
-                <p class="text-sm font-semibold bg-white text-indigo-700 inline-block px-3 py-1 rounded">
-                    VALEUR TOTALE : <span class="line-through">62€</span> <span class="text-purple-700">OFFERT</span>
+            
+            <div class="footer-bottom">
+                <p>&copy; 2025 EmploiYele. Tous droits réservés.</p>
+                <p style="margin-top: 10px;">
+                    <a href="#">Mentions légales</a> | 
+                    <a href="#">Politique de confidentialité</a> | 
+                    <a href="#">CGV</a>
                 </p>
             </div>
-        </section>
+        </div>
+    </footer>
 
-        <!-- Appel à l'action principal -->
-        <section id="purchase" class="text-center mb-10 p-6 bg-white rounded-2xl shadow-lg">
-            <h2 class="text-2xl font-bold text-gray-900 mb-4">Prêt à réinventer votre vie ?</h2>
-            <pay-700 mb-2">Investissement : <span class="text-xl font-bold text-indigo-700">9€</span> seulement</p>
-            <p class="text-indigo-700 mb-5 text-sm">
-                Rejoignez les 15,000+ lecteurs qui ont transformé leur vie.
-            </p>
-            <div class="mb-5">
-                <div class="flex justify-between items-center mb-2 text-xs text-gray-600">
-                    <span>Garantie 30 jours</span>
-                    <span>Paiement sécurisé</span>
-                </div>
-                <div class="flex items-center mb-4">
-                    <div class="flex-1 h-2 bg-gray-200 rounded-full">
-                        <div class="h-2 bg-indigo-500 rounded-full" style="width: 85%"></div>
-                    </div>
-                    <span class="ml-2 text-xs text-gray-600">154 copies cette semaine</span>
-                </div>
+    <!-- Cookie Popup -->
+    <div class="cookie-popup" id="cookiePopup">
+        <div class="cookie-content">
+            <div class="cookie-text">
+                <p>Nous utilisons des cookies pour améliorer votre expérience sur notre site. En continuant votre navigation, vous acceptez notre politique de confidentialité.</p>
             </div>
-            <a href="https://uerxlgwc.mychariow.com/prd_6n58lg/checkout" target="_blank"
-               class="inline-block bg-indigo-600 text-white font-bold py-4 px-10 rounded-2xl text-lg shadow-lg mb-3">
-                <i class="fas fa-lock mr-2"></i>Obtenir mon exemplaire
-            </a>
-            <p class="text-xs text-gray-500">
-                <i class="fas fa-download mr-1"></i>Téléchargement instantané
-            </p>
-        </section>
-
-        <!-- Témoignages -->
-        <section id="testimonials" class="mb-10 bg-white p-6 rounded-2xl shadow-lg">
-            <h2 class="text-2xl font-bold text-center text-gray-900 mb-6">Ils ont réinventé leur vie :</h2>
-            <div class="space-y-5">
-                <div class="testimonial-card bg-gray-50 p-5 rounded-2xl shadow-sm border border-gray-200 relative">
-                    <div class="flex items-center mb-3">
-                        <div class="w-10 h-10 bg-indigo-100 rounded-full flex items-center justify-center text-indigo-600 font-bold mr-3">S</div>
-                        <div>
-                            <p class="font-semibold text-gray-800 text-sm">Sarah, 32 ans</p>
-                            <div class="flex text-amber-400 text-xs">
-                                <i class="fas fa-star"></i>
-                                <i class="fas fa-star"></i>
-                                <i class="fas fa-star"></i>
-                                <i class="fas fa-star"></i>
-                                <i class="fas fa-star"></i>
-                            </div>
-                        </div>
-                    </div>
-                    <p class="text-gray-600 italic text-sm">"Ce livre m'a donné les outils concrets pour dépasser mes peurs et oser changer de carrière. J'ai multiplié mes revenus par 3 en 18 mois."</p>
-                </div>
-                <div class="testimonial-card bg-gray-50 p-5 rounded-2xl shadow-sm border border-gray-200 relative">
-                    <div class="flex items-center mb-3">
-                        <div class="w-10 h-10 bg-indigo-100 rounded-full flex items-center justify-center text-indigo-600 font-bold mr-3">K</div>
-                        <div>
-                            <p class="font-semibold text-gray-800 text-sm">Karim, 40 ans</p>
-                            <div class="flex text-amber-400 text-xs">
-                                <i class="fas fa-star"></i>
-                                <i class="fas fa-star"></i>
-                                <i class="fas fa-star"></i>
-                                <i class="fas fa-star"></i>
-                                <i class="fas fa-star"></i>
-                            </div>
-                        </div>
-                    </div>
-                    <p class="text-gray-600 italic text-sm">"J'ai enfin compris comment mes habitudes quotidiennes pouvaient transformer ma vie. Un guide précieux pour quiconque veut se sentir plus épanoui."</p>
-                </div>
-            </div>
-        </section>
-
-        <!-- FAQ -->
-        <section id="faq" class="mb-10 bg-white p-6 rounded-2xl shadow-lg">
-            <h2 class="text-2xl font-bold text-center text-gray-900 mb-6">Questions Fréquentes</h2>
-            <div class="space-y-5">
-                <div class="pb-4 border-b border-gray-200">
-                    <h3 class="text-lg font-semibold text-gray-800 mb-2 flex items-center">
-                        <i class="fas fa-question-circle text-indigo-500 mr-2"></i>
-                        Le livre est-il adapté aux débutants ?
-                    </h3>
-                    <p class="text-gray-600 text-sm">Oui, absolument ! Ce guide est accessible à tous, que vous soyez au début de votre parcours ou que vous cherchiez à approfondir votre transformation.</p>
-                </div>
-                <div class="pb-4 border-b border-gray-200">
-                    <h3 class="text-lg font-semibold text-gray-800 mb-2 flex items-center">
-                        <i class="fas fa-question-circle text-indigo-500 mr-2"></i>
-                        Quel format recevrai-je ?
-                    </h3>
-                    <p class="text-gray-600 text-sm">Vous recevrez immédiatement après paiement l'ebook dans les trois formats principaux (PDF, EPUB et MOBI), compatibles avec tous les appareils.</p>
-                </div>
-                <div class="pb-4">
-                    <h3 class="text-lg font-semibold text-gray-800 mb-2 flex items-center">
-                        <i class="fas fa-question-circle text-indigo-500 mr-2"></i>
-                        Y a-t-il des exercices pratiques ?
-                    </h3>
-                    <p class="text-gray-600 text-sm">Oui, "Réinventez-vous" inclut de nombreux exercices pratiques, des auto-évaluations et des défis pour vous aider à appliquer les principes.</p>
-                </div>
-            </div>
-        </section>
-
-        <!-- Pied de page -->
-        <footer class="text-center py-8 border-t border-gray-200">
-            <div class="mb-5">
-                <span class="text-lg font-bold gradient-text">RÉINVENTEZ-VOUS</span>
-            </div>
-            <div class="flex justify-center space-x-5 mb-5">
-                <a href="#" class="text-gray-500 hover:text-indigo-600"><i class="fab fa-facebook-f"></i></a>
-                <a href="#" class="text-gray-500 hover:text-indigo-600"><i class="fab fa-instagram"></i></a>
-                <a href="#" class="text-gray-500 hover:text-indigo-600"><i class="fab fa-linkedin-in"></i></a>
-            </div>
-            <p class="text-sm text-gray-600 mb-2">© 2025 Lila Nova. Tous droits réservés.</p>
-            <p class="text-xs text-gray-500">
-                <a href="#" class="hover:text-indigo-600">Mentions légales</a> • 
-                <a href="#" class="hover:text-indigo-600">Confidentialité</a>
-            </p>
-        </footer>
-
+            <button class="cookie-btn" id="acceptCookies">Accepter</button>
+        </div>
     </div>
 
+    <!-- JavaScript -->
     <script>
-        // Gestion du menu mobile
-        const menuToggle = document.getElementById('menu-toggle');
-        const menuClose = document.getElementById('menu-close');
-        const mobileMenu = document.getElementById('mobile-menu');
-        
-        menuToggle.addEventListener('click', () => {
-            mobileMenu.classList.add('active');
-            document.body.style.overflow = 'hidden';
+        // MENU HAMBURGER MOBILE
+        const hamburger = document.getElementById('hamburger');
+        const navLinks = document.getElementById('navLinks');
+        const navLinksItems = document.querySelectorAll('.nav-links a');
+
+        hamburger.addEventListener('click', () => {
+            navLinks.classList.toggle('active');
+            hamburger.querySelector('i').classList.toggle('fa-bars');
+            hamburger.querySelector('i').classList.toggle('fa-times');
         });
-        
-        menuClose.addEventListener('click', () => {
-            mobileMenu.classList.remove('active');
-            document.body.style.overflow = 'auto';
-        });
-        
-        // Fermer le menu en cliquant sur un lien
-        const menuLinks = document.querySelectorAll('#mobile-menu a');
-        menuLinks.forEach(link => {
+
+        navLinksItems.forEach(link => {
             link.addEventListener('click', () => {
-                mobileMenu.classList.remove('active');
-                document.body.style.overflow = 'auto';
+                navLinks.classList.remove('active');
+                hamburger.querySelector('i').classList.add('fa-bars');
+                hamburger.querySelector('i').classList.remove('fa-times');
             });
         });
-        
-        // Smooth scroll pour les liens d'ancrage
-        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
-            anchor.addEventListener('click', function (e) {
-                e.preventDefault();
-                const targetId = this.getAttribute('href');
-                if (targetId === '#') return;
+
+        // ANIMATION FADE-IN AU SCROLL
+        const fadeElements = document.querySelectorAll('.fade-in');
+
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.classList.add('visible');
+                    observer.unobserve(entry.target);
+                }
+            });
+        }, { threshold: 0.1, rootMargin: '0px 0px -50px 0px' });
+
+        fadeElements.forEach(element => {
+            observer.observe(element);
+        });
+
+        // SÉLECTION DU PACK DEPUIS LES CARTES
+        function selectPack(packName) {
+            document.getElementById('pack').value = packName;
+        }
+
+        // GESTION DU FORMULAIRE
+        const orderForm = document.getElementById('orderForm');
+        const successMessage = document.getElementById('successMessage');
+        const paymentSection = document.getElementById('paymentSection');
+
+        orderForm.addEventListener('submit', function(e) {
+            e.preventDefault();
+            
+            const formData = new FormData(orderForm);
+            let isValid = true;
+            
+            for (let [key, value] of formData.entries()) {
+                if (!value && key !== 'message') {
+                    isValid = false;
+                    break;
+                }
+            }
+            
+            if (isValid) {
+                orderForm.style.display = 'none';
+                successMessage.style.display = 'block';
                 
-                const targetElement = document.querySelector(targetId);
-                if (targetElement) {
-                    targetElement.scrollIntoView({
-                        behavior: 'smooth'
-                    });
+                setTimeout(() => {
+                    paymentSection.style.display = 'block';
+                    paymentSection.classList.add('fade-in', 'visible');
+                }, 500);
+                
+                console.log('Formulaire soumis avec succès');
+                console.log('Données:', Object.fromEntries(formData));
+            }
+        });
+
+        // BOUTON DE PAIEMENT CHARIOW
+        const payButton = document.getElementById('payButton');
+        
+        payButton.addEventListener('click', function(e) {
+            if (this.getAttribute('href') === '#' || this.getAttribute('href') === '') {
+                e.preventDefault();
+                alert('Le lien de paiement Chariow doit être configuré. Veuillez contacter l\'administrateur du site.');
+            }
+        });
+
+        // COOKIE POPUP
+        const cookiePopup = document.getElementById('cookiePopup');
+        const acceptCookiesBtn = document.getElementById('acceptCookies');
+
+        if (!localStorage.getItem('cookiesAccepted')) {
+            setTimeout(() => {
+                cookiePopup.classList.add('show');
+            }, 2000);
+        }
+
+        acceptCookiesBtn.addEventListener('click', () => {
+            localStorage.setItem('cookiesAccepted', 'true');
+            cookiePopup.classList.remove('show');
+        });
+
+        // SMOOTH SCROLL POUR LES LIENS D'ANCRAGE
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function(e) {
+                const href = this.getAttribute('href');
+                if (href !== '#') {
+                    e.preventDefault();
+                    const target = document.querySelector(href);
+                    if (target) {
+                        const headerOffset = 80;
+                        const elementPosition = target.getBoundingClientRect().top;
+                        const offsetPosition = elementPosition + window.pageYOffset - headerOffset;
+
+                        window.scrollTo({
+                            top: offsetPosition,
+                            behavior: 'smooth'
+                        });
+                    }
                 }
             });
         });
-    </script>
 
+        // HEADER QUI CHANGE DE STYLE AU SCROLL
+        window.addEventListener('scroll', () => {
+            const header = document.querySelector('header');
+            header.style.boxShadow = window.scrollY > 50 
+                ? '0 4px 6px rgba(0, 0, 0, 0.2)' 
+                : '0 4px 6px rgba(0, 0, 0, 0.1)';
+        });
+    </script>
 </body>
 </html>
