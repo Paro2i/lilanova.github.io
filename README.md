@@ -1,2 +1,3 @@
-# lilanova.github.io
-🚀 Réinventez-vous - Mode d’emploi est un ebook exclusif de Lila Nova, gagnant du Prix des Lecteurs 2020. Découvrez une méthode en 3 étapes (Déconstruction, Reconstruction, Ancrage) pour transformer votre vie et bâtir une identité durable. 🌟 Achetez via Chariow et téléchargez instantanément !
+# emploiyele.github.io
+Notre rôle ? Prendre ton parcours, tes compétences, et les transformer en une machine de guerre pour les recruteurs internationaux.
+Que ce soit pour un CV Premium optimisé pour les robots, une lettre de motivation percutante qui donne envie de t’appeler, ou une refonte totale de ton LinkedIn pour que ce soit les chasseurs de têtes qui viennent à toi : on s’occupe de tout.
